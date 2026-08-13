@@ -25,7 +25,7 @@ export const contact = {
     "Adresas bus patikslintas",
     "Lietuva",
   ],
-  facebook: "",
+  facebook: "https://www.facebook.com/lithuaniateenchallenge",
   instagram: "",
   youtube: "",
 };

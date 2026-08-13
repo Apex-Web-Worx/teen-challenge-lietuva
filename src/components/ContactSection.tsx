@@ -61,8 +61,8 @@ export function ContactSection({ heading = "Susisiekime" }: { heading?: string }
             </li>
           </ul>
           <div className="mt-8 flex gap-3">
-            <SocialPlaceholder label="Facebook" icon={Facebook} />
-            <SocialPlaceholder label="Instagram" icon={Instagram} />
+            <SocialLink href={contact.facebook} label="Facebook" icon={Facebook} />
+            <SocialLink href={contact.instagram} label="Instagram" icon={Instagram} />
           </div>
         </FadeIn>
 
@@ -76,16 +76,35 @@ export function ContactSection({ heading = "Susisiekime" }: { heading?: string }
   );
 }
 
-function SocialPlaceholder({
+function SocialLink({
+  href,
   label,
   icon: Icon,
 }: {
+  href: string;
   label: string;
   icon: typeof Facebook;
 }) {
+  const className =
+    "inline-flex size-11 items-center justify-center rounded-full border border-line text-navy";
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={`${className} hover:border-gold hover:text-gold`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label}
+      >
+        <Icon className="size-5" aria-hidden="true" />
+      </a>
+    );
+  }
+
   return (
     <span
-      className="inline-flex size-11 items-center justify-center rounded-full border border-line text-navy"
+      className={className}
       title={`${label} nuoroda bus pridėta vėliau`}
       aria-label={`${label} – nuoroda bus pridėta vėliau`}
     >

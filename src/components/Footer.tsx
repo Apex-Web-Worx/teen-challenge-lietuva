@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Facebook, Heart, Instagram, Youtube } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { legalNav, mainNav } from "@/data/navigation";
-import { site } from "@/data/site";
+import { contact, site } from "@/data/site";
 
 export function Footer() {
   return (
@@ -44,13 +44,15 @@ export function Footer() {
             Sekite mus
           </h2>
           <div className="mt-4 flex gap-3">
-            <SocialIcon label="Facebook" icon={Facebook} />
-            <SocialIcon label="Instagram" icon={Instagram} />
-            <SocialIcon label="YouTube" icon={Youtube} />
+            <SocialIcon href={contact.facebook} label="Facebook" icon={Facebook} />
+            <SocialIcon href={contact.instagram} label="Instagram" icon={Instagram} />
+            <SocialIcon href={contact.youtube} label="YouTube" icon={Youtube} />
           </div>
-          <p className="mt-4 text-sm text-white/55">
-            Socialinių tinklų nuorodos bus pridėtos, kai bus patvirtintos.
-          </p>
+          {(!contact.instagram || !contact.youtube) && (
+            <p className="mt-4 text-sm text-white/55">
+              Kitos socialinių tinklų nuorodos bus pridėtos, kai bus patvirtintos.
+            </p>
+          )}
         </div>
       </div>
 
@@ -73,15 +75,34 @@ export function Footer() {
 }
 
 function SocialIcon({
+  href,
   label,
   icon: Icon,
 }: {
+  href: string;
   label: string;
   icon: typeof Facebook;
 }) {
+  const className =
+    "inline-flex size-11 items-center justify-center rounded-full border border-white/15 text-white";
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={`${className} hover:border-gold hover:text-gold`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label}
+      >
+        <Icon className="size-5" aria-hidden="true" />
+      </a>
+    );
+  }
+
   return (
     <span
-      className="inline-flex size-11 items-center justify-center rounded-full border border-white/15 text-white"
+      className={className}
       aria-label={`${label} – nuoroda bus pridėta vėliau`}
       title={`${label} nuoroda bus pridėta vėliau`}
     >
