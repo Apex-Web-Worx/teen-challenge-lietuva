@@ -128,28 +128,8 @@ button {
   border-radius: 999px;
 }
 
-.tcl-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-navy);
-  color: white;
-  animation: tcl-loader-exit 0.7s 2.5s ease forwards;
-}
-
-.tcl-loader.is-leaving {
-  animation: tcl-loader-exit 0.7s ease forwards;
-  pointer-events: none;
-}
-
-.tcl-loader-flagbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 9px;
+.header-flagbar {
+  height: 6px;
   width: 100%;
   transform-origin: left center;
   background: linear-gradient(
@@ -158,233 +138,50 @@ button {
     #006a44 33.33% 66.66%,
     #c1272d 66.66% 100%
   );
-  animation: tcl-unfurl 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: flag-unfurl 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.tcl-loader-stage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.35rem;
-  padding: 1.5rem;
-}
-
-.tcl-loader-hero {
-  position: relative;
-  display: flex;
-  width: min(17.5rem, 78vw);
-  height: min(17.5rem, 78vw);
-  align-items: center;
-  justify-content: center;
-}
-
-.tcl-loader-flag-slot {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.tcl-loader-flag {
-  display: flex;
-  width: 78%;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: 5px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
-  transform-origin: 18% 50%;
-  animation: tcl-flag-intro 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.tcl-loader-flag-stripe {
-  display: block;
-  height: 1.45rem;
-  width: 100%;
-}
-
-.tcl-loader-flag-yellow {
-  background: #fdb913;
-}
-
-.tcl-loader-flag-green {
-  background: #006a44;
-}
-
-.tcl-loader-flag-red {
-  background: #c1272d;
-}
-
-.tcl-loader-card {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  border-radius: 28px;
-  background: white;
-  padding: 1.2rem 1.35rem 1rem;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-  animation: tcl-card-in 0.55s 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.tcl-loader-mark-wrap {
-  position: relative;
-  width: 86%;
-}
-
-.tcl-loader-mark-wrap::after {
-  content: "";
-  position: absolute;
-  inset: -8%;
-  background: linear-gradient(
-    105deg,
-    transparent 36%,
-    rgb(253 185 19 / 0.45) 47%,
-    rgb(0 106 68 / 0.32) 52%,
-    rgb(193 39 45 / 0.4) 57%,
-    transparent 68%
-  );
-  transform: translateX(-130%);
-  animation: tcl-flag-shine 0.85s 1.35s ease-out both;
-  pointer-events: none;
-}
-
-.tcl-loader-mark {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: none;
+.logo-flag-intro {
   transform-origin: 50% 82%;
-  animation: tcl-logo-reveal 1.45s 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: logo-flag-reveal 1.25s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.tcl-loader-wordmark {
-  margin: 0;
-  text-align: center;
-  animation: tcl-fade-up 0.7s 1.9s ease both;
+.logo-wordmark-intro {
+  animation: logo-fade-up 0.55s 0.55s ease both;
 }
 
-.tcl-loader-wordmark span {
-  display: block;
+.logo-wordmark-intro-delay {
+  animation: logo-fade-up 0.55s 0.7s ease both;
 }
 
-.tcl-loader-wordmark span:first-child {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-}
-
-.tcl-loader-wordmark span:last-child {
-  margin-top: 0.3rem;
-  font-size: 1.65rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-
-@keyframes tcl-unfurl {
+@keyframes flag-unfurl {
   from {
     transform: scaleX(0);
-    opacity: 0.4;
   }
   to {
     transform: scaleX(1);
-    opacity: 1;
   }
 }
 
-@keyframes tcl-flag-intro {
-  0% {
-    opacity: 0.35;
-    transform: perspective(420px) scaleX(0) rotateY(-8deg);
-  }
-  28% {
-    opacity: 1;
-    transform: perspective(420px) scaleX(1) rotateY(-10deg) skewY(-1.5deg);
-  }
-  52% {
-    opacity: 1;
-    transform: perspective(420px) scaleX(1) rotateY(10deg) skewY(1.5deg);
-  }
-  78% {
-    opacity: 1;
-    transform: perspective(420px) scaleX(1) rotateY(0deg) skewY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: perspective(420px) scale(0.86) rotateY(0deg);
-  }
-}
-
-@keyframes tcl-card-in {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes tcl-logo-reveal {
+@keyframes logo-flag-reveal {
   0% {
     clip-path: inset(68% 100% 0 0);
-    transform: translateY(10px);
   }
-  42% {
+  45% {
     clip-path: inset(68% 0 0 0);
-    transform: translateY(10px);
-  }
-  52% {
-    clip-path: inset(68% 0 0 0);
-    transform: translateY(10px);
-  }
-  82% {
-    clip-path: inset(0 0 0 0);
-    transform: translateY(0) scale(1);
-  }
-  91% {
-    clip-path: inset(0 0 0 0);
-    transform: translateY(-5px) scale(1.03);
   }
   100% {
     clip-path: inset(0 0 0 0);
-    transform: translateY(0) scale(1);
   }
 }
 
-@keyframes tcl-flag-shine {
-  from {
-    transform: translateX(-130%);
-  }
-  to {
-    transform: translateX(130%);
-  }
-}
-
-@keyframes tcl-fade-up {
+@keyframes logo-fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes tcl-loader-exit {
-  to {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
   }
 }

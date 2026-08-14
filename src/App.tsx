@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Route, Router, Switch, useLocation } from "wouter";
-import { PageLoader } from "@/components/PageLoader";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Programs from "@/pages/Programs";
@@ -29,7 +28,6 @@ export default function App() {
 
   return (
     <Router base={base}>
-      <PageLoader />
       <ScrollToTop />
       <Switch>
         <Route path="/" component={Home} />
