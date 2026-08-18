@@ -26,7 +26,7 @@ export const contact = {
   ],
   facebook: "https://www.facebook.com/lithuaniateenchallenge",
   instagram: "",
-  youtube: "https://www.youtube.com/watch?v=x8cQev8zdmc",
+  youtube: "https://www.youtube.com/@teenchallenge8541",
 };
 
 export const introVideo = {
