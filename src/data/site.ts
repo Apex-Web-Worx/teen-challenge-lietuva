@@ -17,10 +17,10 @@ export const site = {
 
 export const contact = {
   // TODO: Replace each field with verified Teen Challenge Lietuva contact details.
-  phoneDisplay: "Telefonas bus patikslintas",
-  phoneHref: "",
-  emailDisplay: "El. paštas bus patikslintas",
-  emailHref: "",
+  phoneDisplay: "+370 656 78929",
+  phoneHref: "tel:+37065678929",
+  emailDisplay: "tc.lietuva@gmail.com",
+  emailHref: "mailto:tc.lietuva@gmail.com",
   addressLines: [
     "Veržuva, Slienava, Pikeliai",
     "Lietuva",
