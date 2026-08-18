@@ -6,7 +6,6 @@ import { ProgramsSection } from "@/components/ProgramsSection";
 import { StoriesSection } from "@/components/StoriesSection";
 import { DonationCTA } from "@/components/DonationCTA";
 import { BibleVerse } from "@/components/BibleVerse";
-import { NewsSection } from "@/components/NewsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { useSeo } from "@/hooks/useSeo";
 import { site } from "@/data/site";
@@ -26,7 +25,6 @@ export default function Home() {
       <StoriesSection />
       <DonationCTA />
       <BibleVerse />
-      <NewsSection />
       <ContactSection />
     </Layout>
   );
