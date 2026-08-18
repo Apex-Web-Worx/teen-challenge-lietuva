@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Play } from "lucide-react";
+import { Play, X } from "lucide-react";
 import { Button } from "@/components/Button";
+import { introVideo } from "@/data/site";
 import { asset } from "@/lib/utils";
 
 export function Hero() {
@@ -59,7 +60,7 @@ export function Hero() {
             </Button>
             <Button variant="outline" onClick={() => setVideoOpen(true)}>
               <Play className="size-4 fill-current" aria-hidden="true" />
-              Pažiūrėti video
+              Peržiūrėti video
             </Button>
             <Button href="/parama" arrow>
               Paremti mūsų veiklą
@@ -77,20 +78,30 @@ export function Hero() {
           onClick={() => setVideoOpen(false)}
         >
           <div
-            className="w-full max-w-2xl rounded-[16px] bg-white p-6 shadow-2xl"
+            className="w-full max-w-4xl overflow-hidden rounded-[16px] bg-navy-dark shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <h2 id="video-title" className="text-xl font-extrabold text-navy">
-              Vaizdo įrašas
-            </h2>
-            <p className="mt-3 text-muted">
-              Vaizdo įrašas bus paskelbtas netrukus. Šis langas yra laikinas, kol
-              Teen Challenge Lietuva pateiks oficialią vaizdo medžiagą.
-            </p>
-            <div className="mt-6">
-              <Button variant="navy" onClick={() => setVideoOpen(false)}>
-                Uždaryti
-              </Button>
+            <div className="flex items-center justify-between gap-4 px-4 py-3 sm:px-5">
+              <h2 id="video-title" className="text-sm font-extrabold uppercase tracking-wide text-white">
+                {introVideo.title}
+              </h2>
+              <button
+                type="button"
+                onClick={() => setVideoOpen(false)}
+                className="inline-flex size-10 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white"
+                aria-label="Uždaryti vaizdo įrašą"
+              >
+                <X className="size-5" aria-hidden="true" />
+              </button>
+            </div>
+            <div className="aspect-video w-full bg-black">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${introVideo.id}?autoplay=1&rel=0`}
+                title={introVideo.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="size-full"
+              />
             </div>
           </div>
         </div>

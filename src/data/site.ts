@@ -26,7 +26,13 @@ export const contact = {
   ],
   facebook: "https://www.facebook.com/lithuaniateenchallenge",
   instagram: "",
-  youtube: "",
+  youtube: "https://www.youtube.com/watch?v=x8cQev8zdmc",
+};
+
+export const introVideo = {
+  id: "x8cQev8zdmc",
+  url: "https://www.youtube.com/watch?v=x8cQev8zdmc",
+  title: "Liudijimas",
 };
 
 export const donationAmounts = [20, 50, 100, 250] as const;
