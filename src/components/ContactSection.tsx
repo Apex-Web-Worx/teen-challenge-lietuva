@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { FadeIn } from "@/components/FadeIn";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -62,7 +62,6 @@ export function ContactSection({ heading = "Susisiekime" }: { heading?: string }
           </ul>
           <div className="mt-8 flex gap-3">
             <SocialLink href={contact.facebook} label="Facebook" icon={Facebook} />
-            <SocialLink href={contact.instagram} label="Instagram" icon={Instagram} />
           </div>
         </FadeIn>
 
