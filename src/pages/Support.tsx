@@ -4,16 +4,13 @@ import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/Button";
 import { DonationAmountRow } from "@/components/DonationButton";
-import { donationAmounts } from "@/data/site";
 import { useSeo } from "@/hooks/useSeo";
 
 export default function Support() {
   const search = useSearch();
   const initialAmount = useMemo(() => {
     const value = Number(new URLSearchParams(search).get("suma"));
-    return donationAmounts.includes(value as (typeof donationAmounts)[number])
-      ? value
-      : 50;
+    return Number.isFinite(value) && value > 0 ? value : 50;
   }, [search]);
   const [amount, setAmount] = useState<number | null>(initialAmount);
   const [notice, setNotice] = useState("");
@@ -44,6 +41,24 @@ export default function Support() {
             onChange={setAmount}
             tone="light"
           />
+          <div className="mt-5 max-w-xs">
+            <label htmlFor="donation-custom-support" className="mb-1.5 block text-sm font-bold text-navy">
+              Kita suma (€)
+            </label>
+            <input
+              id="donation-custom-support"
+              type="number"
+              min="1"
+              step="0.01"
+              inputMode="decimal"
+              placeholder="Įveskite sumą"
+              onChange={(event) => {
+                const value = Number(event.currentTarget.value);
+                setAmount(Number.isFinite(value) && value > 0 ? value : null);
+              }}
+              className="w-full rounded-[12px] border border-line bg-white px-4 py-3 font-bold text-navy outline-none transition focus:border-navy"
+            />
+          </div>
           <p className="mt-6 text-lg font-extrabold text-navy">
             Pasirinkta suma: {amount ? `${amount} €` : "nepasirinkta"}
           </p>
@@ -57,7 +72,6 @@ export default function Support() {
               variant="gold"
               arrow
               onClick={() => {
-                // TODO: Connect payment processing (Stripe, Paysera, or similar).
                 setNotice(
                   amount
                     ? `Pasirinkta ${amount} €. Mokėjimų sistema dar neprijungta.`
