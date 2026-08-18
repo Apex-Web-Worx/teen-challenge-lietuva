@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>/</loc></url>
-  <url><loc>/apie-mus</loc></url>
-  <url><loc>/musu-veikla</loc></url>
-  <url><loc>/pagalba</loc></url>
-  <url><loc>/istorijos</loc></url>
-  <url><loc>/naujienos</loc></url>
-  <url><loc>/parama</loc></url>
-  <url><loc>/kontaktai</loc></url>
-  <url><loc>/privatumo-politika</loc></url>
-  <url><loc>/slapuku-politika</loc></url>
+  <url><loc>https://tcpikeliai.lt/</loc></url>
+  <url><loc>https://tcpikeliai.lt/apie-mus</loc></url>
+  <url><loc>https://tcpikeliai.lt/musu-veikla</loc></url>
+  <url><loc>https://tcpikeliai.lt/musu-veikla/pikeliai</loc></url>
+  <url><loc>https://tcpikeliai.lt/pagalba</loc></url>
+  <url><loc>https://tcpikeliai.lt/istorijos</loc></url>
+  <url><loc>https://tcpikeliai.lt/naujienos</loc></url>
+  <url><loc>https://tcpikeliai.lt/parama</loc></url>
+  <url><loc>https://tcpikeliai.lt/kontaktai</loc></url>
+  <url><loc>https://tcpikeliai.lt/privatumo-politika</loc></url>
+  <url><loc>https://tcpikeliai.lt/slapuku-politika</loc></url>
 </urlset>

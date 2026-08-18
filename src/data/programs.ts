@@ -1,10 +1,15 @@
-// TODO: Replace with verified Teen Challenge Lietuva program information.
+// Center copy is taken from official Teen Challenge sources:
+// Europe Teen Challenge Lithuania page and publicly confirmed Pikeliai location.
 
 export type Program = {
   id: string;
   number: string;
   slug: string;
   title: string;
+  location: string;
+  audience: string;
+  established: string;
+  duration?: string;
   description: string;
   longDescription: string[];
   image: string;
@@ -12,66 +17,31 @@ export type Program = {
   href: string;
 };
 
+export const programsIntro = {
+  title: "Mūsų veikla",
+  description:
+    "Teen Challenge Lietuva įkurta 2001 m. kaip tarnystė priklausomiems ir socialiai pažeistiems žmonėms. Pikeluose veikia vyrų savarankiško gyvenimo centras – Krikščioniški savarankiškumo namai. Programa padeda studentams išsilaisvinti iš alkoholio, narkotikų ir kitų psichotropinių medžiagų.",
+};
+
 export const programs: Program[] = [
   {
-    id: "pagalba",
+    id: "pikeliai",
     number: "01",
-    slug: "pagalba-priklausomybes-atveju",
-    title: "Pagalba priklausomybės atveju",
+    slug: "pikeliai",
+    title: "Pikeliai",
+    location: "Pikeliai, Kėdainių r.",
+    audience: "Vyrų savarankiško gyvenimo centras",
+    established: "2003 m.",
     description:
-      "Pirmasis žingsnis – saugus pokalbis ir aiškus kelias, kai žmogus ieško išeities.",
+      "Krikščioniški savarankiškumo namai Pikeliuose. Pagalba vyrams, siekiantiems įveikti priklausomybes ir mokytis gyventi savarankiškai.",
     longDescription: [
-      "Šis aprašymas yra laikinas ir turi būti pakeistas oficialia Teen Challenge Lietuva programos informacija.",
-      "Čia vėliau bus pateikta, kaip organizacija priima užklausas, kokią pirmąją pagalbą siūlo ir kaip prasideda kelias į pokytį.",
-    ],
-    image: "images/program-help.jpg",
-    imageAlt: "Dviejų žmonių pokalbis pagalbos metu. Iliustracinė nuotrauka.",
-    href: "/musu-veikla/pagalba-priklausomybes-atveju",
-  },
-  {
-    id: "reabilitacija",
-    number: "02",
-    slug: "reabilitacija",
-    title: "Reabilitacija",
-    description:
-      "Ilgalaikis, struktūruotas kelias, kuriame formuojasi nauji įpročiai ir vidinė ramybė.",
-    longDescription: [
-      "Šis aprašymas yra laikinas ir turi būti pakeistas oficialia Teen Challenge Lietuva reabilitacijos informacija.",
-      "Čia vėliau bus aprašyta programos trukmė, kasdienė struktūra ir krikščioniško atnaujinimo pagrindai – tik po patvirtinimo.",
-    ],
-    image: "images/program-rehab.jpg",
-    imageAlt: "Ramus rytas gamtoje. Iliustracinė nuotrauka apie vidinį atsinaujinimą.",
-    href: "/musu-veikla/reabilitacija",
-  },
-  {
-    id: "bendruomene",
-    number: "03",
-    slug: "bendruomene",
-    title: "Bendruomenė",
-    description:
-      "Saugi aplinka, kurioje žmogus nėra paliktas vienas – pokytys auga kartu su kitais.",
-    longDescription: [
-      "Šis aprašymas yra laikinas ir turi būti pakeistas oficialia Teen Challenge Lietuva bendruomenės informacija.",
-      "Čia vėliau bus papasakota, kaip atrodo kasdienis gyvenimas, palaikymas ir dvasinė bendrystė programoje.",
-    ],
-    image: "images/program-community.jpg",
-    imageAlt: "Žmonių grupė, susėdusi kartu. Iliustracinė nuotrauka.",
-    href: "/musu-veikla/bendruomene",
-  },
-  {
-    id: "po-programos",
-    number: "04",
-    slug: "gyvenimas-po-programos",
-    title: "Gyvenimas po programos",
-    description:
-      "Pagalba nesibaigia paskutine diena – svarbu turėti kryptį ir atramą tolesniame kelyje.",
-    longDescription: [
-      "Šis aprašymas yra laikinas ir turi būti pakeistas oficialia informacija apie gyvenimą po programos.",
-      "Čia vėliau bus aprašyta, kokį tolesnį palaikymą organizacija gali suteikti – tik patvirtinus faktus.",
+      "Teen Challenge savarankiško gyvenimo centras vyrams veikia nuo 2003 m. Jis įsikūręs Pikeliuose, Kėdainių rajone, ir žinomas kaip Krikščioniški savarankiškumo namai.",
+      "Centre gali gyventi iki 18 studentų, kovojančių su priklausomybėmis. Programa grindžiama „Teen Challenge“ studentų knygomis, asmeniniu konsultavimu ir pastoracine globa.",
+      "Dažnai mus lanko svečiai iš bažnyčių, kurie dalijasi Dievo Žodžiu ir meldžiasi už reikmes.",
     ],
     image: "images/program-after.jpg",
     imageAlt: "Žalias takas, vedantis į šviesą. Iliustracinė nuotrauka apie naują kryptį.",
-    href: "/musu-veikla/gyvenimas-po-programos",
+    href: "/musu-veikla/pikeliai",
   },
 ];
 

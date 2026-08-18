@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { FadeIn } from "@/components/FadeIn";
 import { SectionHeading } from "@/components/SectionHeading";
-import { programs } from "@/data/programs";
+import { programs, programsIntro } from "@/data/programs";
 import { asset } from "@/lib/utils";
 
 type ProgramsSectionProps = {
@@ -16,13 +16,19 @@ export function ProgramsSection({ showIntro = true }: ProgramsSectionProps) {
         {showIntro ? (
           <FadeIn>
             <SectionHeading
-              title="Mūsų veikla"
-              description="Pagalba prasideda nuo žmogaus, bet pokytis keičia visą gyvenimą."
+              title={programsIntro.title}
+              description={programsIntro.description}
             />
           </FadeIn>
-        ) : null}
+        ) : (
+          <FadeIn>
+            <p className="max-w-3xl text-lg leading-relaxed text-muted">
+              {programsIntro.description}
+            </p>
+          </FadeIn>
+        )}
 
-        <div className={`grid gap-6 md:grid-cols-2 ${showIntro ? "mt-12" : ""}`}>
+        <div className="mt-12 grid gap-6">
           {programs.map((program, index) => (
             <FadeIn key={program.id} delay={index * 80}>
               <Link
@@ -36,13 +42,16 @@ export function ProgramsSection({ showIntro = true }: ProgramsSectionProps) {
                     className="h-52 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-full"
                   />
                 </div>
-                <div className="flex flex-col justify-center p-6 sm:p-8">
+                <div className="flex flex-1 flex-col p-6 sm:p-8">
                   <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-gold-dark">
                     {program.number}
                   </p>
                   <h3 className="mt-3 text-xl font-extrabold leading-snug text-navy">
                     {program.title}
                   </h3>
+                  <p className="mt-1 text-sm font-bold text-navy/70">
+                    {program.location}
+                  </p>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
                     {program.description}
                   </p>
