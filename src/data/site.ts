@@ -22,7 +22,7 @@ export const contact = {
   emailDisplay: "El. paštas bus patikslintas",
   emailHref: "",
   addressLines: [
-    "Adresas bus patikslintas",
+    "Veržuva, Slienava, Pikeliai",
     "Lietuva",
   ],
   facebook: "https://www.facebook.com/lithuaniateenchallenge",
