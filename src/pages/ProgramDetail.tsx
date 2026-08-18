@@ -58,22 +58,24 @@ export default function ProgramDetail() {
             className="w-full rounded-[16px] object-cover"
           />
         </div>
-        <div className="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-extrabold text-navy">Kiti centrai</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {others.map((item) => (
-              <Link
-                key={item.id}
-                href={item.href}
-                className="rounded-[14px] border border-line p-5 transition hover:-translate-y-0.5 hover:border-navy/20"
-              >
-                <p className="text-xs font-extrabold text-gold-dark">{item.number}</p>
-                <p className="mt-2 font-extrabold text-navy">{item.title}</p>
-                <p className="mt-1 text-sm text-muted">{item.location}</p>
-              </Link>
-            ))}
+        {others.length > 0 ? (
+          <div className="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-extrabold text-navy">Kiti centrai</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {others.map((item) => (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  className="rounded-[14px] border border-line p-5 transition hover:-translate-y-0.5 hover:border-navy/20"
+                >
+                  <p className="text-xs font-extrabold text-gold-dark">{item.number}</p>
+                  <p className="mt-2 font-extrabold text-navy">{item.title}</p>
+                  <p className="mt-1 text-sm text-muted">{item.location}</p>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : null}
       </section>
     </Layout>
   );

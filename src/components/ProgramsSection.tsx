@@ -28,18 +28,18 @@ export function ProgramsSection({ showIntro = true }: ProgramsSectionProps) {
           </FadeIn>
         )}
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6">
           {programs.map((program, index) => (
             <FadeIn key={program.id} delay={index * 80}>
               <Link
                 href={program.href}
-                className="group flex h-full flex-col overflow-hidden rounded-[16px] bg-white shadow-[0_16px_40px_rgba(7,59,120,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_48px_rgba(7,59,120,0.14)]"
+                className="group grid overflow-hidden rounded-[16px] bg-white shadow-[0_16px_40px_rgba(7,59,120,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_48px_rgba(7,59,120,0.14)] sm:grid-cols-[0.9fr_1.1fr]"
               >
                 <div className="overflow-hidden">
                   <img
                     src={asset(program.image)}
                     alt={program.imageAlt}
-                    className="h-52 w-full object-cover transition duration-700 group-hover:scale-105"
+                    className="h-52 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-full"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6 sm:p-8">
