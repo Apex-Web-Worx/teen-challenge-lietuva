@@ -25,11 +25,28 @@ export function DonationCTA() {
             onChange={setAmount}
             className="mt-8 justify-center"
           />
+          <div className="mx-auto mt-4 max-w-xs text-left">
+            <label htmlFor="donation-custom-home" className="mb-1.5 block text-sm font-bold text-white">
+              Kita suma (€)
+            </label>
+            <input
+              id="donation-custom-home"
+              type="number"
+              min="1"
+              step="0.01"
+              inputMode="decimal"
+              placeholder="Įveskite sumą"
+              onChange={(event) => {
+                const value = Number(event.currentTarget.value);
+                setAmount(Number.isFinite(value) && value > 0 ? value : null);
+              }}
+              className="w-full rounded-[12px] border border-white/20 bg-white px-4 py-3 font-bold text-navy outline-none transition focus:border-gold"
+            />
+          </div>
           <div className="mt-8">
             <Button
               arrow
               onClick={() => {
-                // TODO: Connect payment processing.
                 const query = amount ? `?suma=${amount}` : "";
                 setLocation(`/parama${query}`);
               }}
