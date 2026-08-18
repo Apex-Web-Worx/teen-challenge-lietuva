@@ -6,8 +6,7 @@ export const PLACEHOLDER_DISCLAIMER =
 export const site = {
   name: "Teen Challenge Lietuva",
   shortName: "Teen Challenge",
-  // TODO: Replace with the organization's verified public domain before launch.
-  url: "https://www.teenchallengelietuva.lt",
+  url: "https://tcpikeliai.lt",
   title: "Teen Challenge Lietuva | Viltis. Pagalba. Naujas gyvenimas.",
   // TODO: Verify this wording against the organization's official messaging.
   description:
