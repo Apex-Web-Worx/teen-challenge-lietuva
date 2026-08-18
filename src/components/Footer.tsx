@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Facebook, Heart, Instagram, Youtube } from "lucide-react";
+import { Facebook, Heart, Youtube } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { legalNav, mainNav } from "@/data/navigation";
 import { contact, site } from "@/data/site";
@@ -45,10 +45,9 @@ export function Footer() {
           </h2>
           <div className="mt-4 flex gap-3">
             <SocialIcon href={contact.facebook} label="Facebook" icon={Facebook} />
-            <SocialIcon href={contact.instagram} label="Instagram" icon={Instagram} />
             <SocialIcon href={contact.youtube} label="YouTube" icon={Youtube} />
           </div>
-          {(!contact.instagram || !contact.youtube) && (
+          {!contact.youtube && (
             <p className="mt-4 text-sm text-white/55">
               Kitos socialinių tinklų nuorodos bus pridėtos, kai bus patvirtintos.
             </p>
