@@ -8,7 +8,6 @@ export const mainNav: NavItem[] = [
   { label: "Mūsų veikla", href: "/musu-veikla" },
   { label: "Pagalba", href: "/pagalba" },
   { label: "Istorijos", href: "/istorijos" },
-  { label: "Naujienos", href: "/naujienos" },
   { label: "Kontaktai", href: "/kontaktai" },
 ];
 
