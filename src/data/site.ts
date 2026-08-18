@@ -32,7 +32,7 @@ export const contact = {
 export const introVideo = {
   id: "x8cQev8zdmc",
   url: "https://www.youtube.com/watch?v=x8cQev8zdmc",
-  title: "Liudijimas",
+  title: "Andrej Berseniov gyvenimo istorija",
 };
 
 export const donationAmounts = [20, 50, 100, 250] as const;

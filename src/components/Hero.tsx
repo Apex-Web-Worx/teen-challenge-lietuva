@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Play, X } from "lucide-react";
 import { Button } from "@/components/Button";
 import { introVideo } from "@/data/site";
@@ -60,7 +61,7 @@ export function Hero() {
             </Button>
             <Button variant="outline" onClick={() => setVideoOpen(true)}>
               <Play className="size-4 fill-current" aria-hidden="true" />
-              Peržiūrėti video
+              Pažiūrėti video
             </Button>
             <Button href="/parama" arrow>
               Paremti mūsų veiklą
@@ -69,43 +70,49 @@ export function Hero() {
         </div>
       </div>
 
-      {videoOpen ? (
-        <div
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-navy-dark/80 p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="video-title"
-          onClick={() => setVideoOpen(false)}
-        >
-          <div
-            className="w-full max-w-4xl overflow-hidden rounded-[16px] bg-navy-dark shadow-2xl"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between gap-4 px-4 py-3 sm:px-5">
-              <h2 id="video-title" className="text-sm font-extrabold uppercase tracking-wide text-white">
-                {introVideo.title}
-              </h2>
-              <button
-                type="button"
-                onClick={() => setVideoOpen(false)}
-                className="inline-flex size-10 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white"
-                aria-label="Uždaryti vaizdo įrašą"
-              >
-                <X className="size-5" aria-hidden="true" />
-              </button>
-            </div>
-            <div className="aspect-video w-full bg-black">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${introVideo.id}?autoplay=1&rel=0`}
-                title={introVideo.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="size-full"
-              />
-            </div>
-          </div>
-        </div>
-      ) : null}
+      {videoOpen ? <VideoModal onClose={() => setVideoOpen(false)} /> : null}
     </section>
+  );
+}
+
+function VideoModal({ onClose }: { onClose: () => void }) {
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-navy-dark/85 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="video-title"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-4xl overflow-hidden rounded-[16px] bg-navy-dark shadow-2xl"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-center justify-between gap-4 px-4 py-3 sm:px-5">
+          <h2 id="video-title" className="text-sm font-extrabold uppercase tracking-wide text-white">
+            {introVideo.title}
+          </h2>
+          <button
+            type="button"
+            onClick={onClose}
+            className="inline-flex size-10 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white"
+            aria-label="Uždaryti vaizdo įrašą"
+          >
+            <X className="size-5" aria-hidden="true" />
+          </button>
+        </div>
+        <div className="aspect-video w-full bg-black">
+          <iframe
+            src={`https://www.youtube.com/embed/${introVideo.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+            title={introVideo.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="size-full border-0"
+          />
+        </div>
+      </div>
+    </div>,
+    document.body,
   );
 }
