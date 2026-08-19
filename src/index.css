@@ -127,3 +127,61 @@ button {
   background: var(--color-gold);
   border-radius: 999px;
 }
+
+.header-flagbar {
+  height: 6px;
+  width: 100%;
+  transform-origin: left center;
+  background: linear-gradient(
+    to bottom,
+    #fdb913 0 33.33%,
+    #006a44 33.33% 66.66%,
+    #c1272d 66.66% 100%
+  );
+  animation: flag-unfurl 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.logo-flag-intro {
+  transform-origin: 50% 82%;
+  animation: logo-flag-reveal 1.25s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.logo-wordmark-intro {
+  animation: logo-fade-up 0.55s 0.55s ease both;
+}
+
+.logo-wordmark-intro-delay {
+  animation: logo-fade-up 0.55s 0.7s ease both;
+}
+
+@keyframes flag-unfurl {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes logo-flag-reveal {
+  0% {
+    clip-path: inset(68% 100% 0 0);
+  }
+  45% {
+    clip-path: inset(68% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes logo-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

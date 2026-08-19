@@ -5,10 +5,16 @@ import { site } from "@/data/site";
 type LogoProps = {
   compact?: boolean;
   onDark?: boolean;
+  intro?: boolean;
   className?: string;
 };
 
-export function Logo({ compact = false, onDark = false, className }: LogoProps) {
+export function Logo({
+  compact = false,
+  onDark = false,
+  intro = false,
+  className,
+}: LogoProps) {
   const markSize = onDark
     ? "h-14 w-14"
     : compact
@@ -35,7 +41,10 @@ export function Logo({ compact = false, onDark = false, className }: LogoProps) 
           alt=""
           width={56}
           height={56}
-          className="h-full w-full object-contain object-center"
+          className={cn(
+            "h-full w-full object-contain object-center",
+            intro && "logo-flag-intro",
+          )}
         />
       </span>
       <span className="hidden min-[380px]:block">
@@ -43,6 +52,7 @@ export function Logo({ compact = false, onDark = false, className }: LogoProps) 
           className={cn(
             "block whitespace-nowrap text-[0.68rem] font-extrabold uppercase leading-none tracking-[0.12em] sm:text-xs",
             onDark ? "text-gold" : "text-navy",
+            intro && "logo-wordmark-intro",
           )}
         >
           Teen Challenge
@@ -51,6 +61,7 @@ export function Logo({ compact = false, onDark = false, className }: LogoProps) 
           className={cn(
             "mt-1 block text-base font-extrabold leading-none",
             onDark ? "text-white" : "text-navy",
+            intro && "logo-wordmark-intro-delay",
           )}
         >
           Lietuva

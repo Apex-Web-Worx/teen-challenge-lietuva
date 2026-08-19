@@ -46,13 +46,14 @@ export function Navbar() {
           : "border-transparent",
       )}
     >
+      <div className="header-flagbar" aria-hidden="true" />
       <div
         className={cn(
           "mx-auto flex max-w-7xl items-center justify-between gap-4 overflow-hidden px-4 transition-all duration-300 sm:px-6 lg:px-8",
           scrolled ? "h-16" : "h-[4.5rem]",
         )}
       >
-        <Logo compact={scrolled} />
+        <Logo compact={scrolled} intro />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Pagrindinė navigacija">
           {mainNav.map((item) => {
